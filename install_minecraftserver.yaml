@@ -2,27 +2,15 @@
   hosts: all 
   vars:
     apt_packages_list:
-    - "openjdk-19-jre-headless"
-    - "screen"
-    - "ufw"
-    - "vim"
+
   tasks:
     - name: "install minecraft server dependencies using apt"
       ansible.builtin.import_role:
-        name: "install_package_w_apt"
+        name: "install_minecraft_server"
       vars:
-        package: "{{ item }}"
-      loop: "{{ apt_packages_list }}"
-      when: ansible_facts.pkg_mgr == "apt"
+        spiggot_version: "1.20.4"
 
-    - name: "install spiggot"
-      ansible.builtin.import_role:
-        name: "install spiggot"
-
-          
-
-
-        # TODO 
+# TODO 
   #   - add public-key to authenticate as minecraft user or password.
   #     REQUIREMENTS: This playbook assumes, that the public_key/password to auth as ansible user is already installed.
   #                   It also assumes, that there is a user "ansible" with root rights to create a new user and install new packages"
@@ -34,4 +22,3 @@
   #   - three repositories: one to install mc server, one to install bukkit/spiggot plugins and a third one to install futureman2007s minecraft sspiggot
   #      where install mc server and install plugins and server files are put together (two repos as submodule, where the needed roles are loaded)
   #      And THERE the playbook will sit!
-  
