@@ -1,3 +1,0 @@
-[submodule "roles/install_minecraft_server"]
-	path = roles/install_minecraft_server
-	url = https://github.com/futureman2007/install_minecraft_server.git
