@@ -1,24 +1,12 @@
 - name: "Install Minecraft Server"
-  hosts: all 
+  hosts: all
   vars:
     apt_packages_list:
 
   tasks:
-    - name: "install minecraft server dependencies using apt"
+    - name: "install minecraft spiggot server"
       ansible.builtin.import_role:
         name: "install_minecraft_server"
       vars:
-        spiggot_version: "1.20.4"
-
-# TODO 
-  #   - add public-key to authenticate as minecraft user or password.
-  #     REQUIREMENTS: This playbook assumes, that the public_key/password to auth as ansible user is already installed.
-  #                   It also assumes, that there is a user "ansible" with root rights to create a new user and install new packages"
-  #   - add password to unzip in ansible-vault var file and refer to it to decrypt zip files
-  #   - implement role to also set cronjob with @reboot sleep10; /usr/bin/screen -A -m -d -S minecraft /home/minecraft/minecraft-server/vanilla/ServerStart.sh
-  #   - do a handler (what fits better) to stop and restart the server. So this playbook can also be used to update the existing plugins.
-  #     for that, see notify handlers (notify, if the plugins zip has changed. Use the folder name with a date. if this folder name  does not exist, (like plugins-20-01-2024)
-  #     then there is an update of plugins or a new install. in anyway: if the handler sees: "oh! minecraft is running, sop and start it ")
-  #   - three repositories: one to install mc server, one to install bukkit/spiggot plugins and a third one to install futureman2007s minecraft sspiggot
-  #      where install mc server and install plugins and server files are put together (two repos as submodule, where the needed roles are loaded)
-  #      And THERE the playbook will sit!
+        mc_version: "1.20.4"
+        type: "spiggot"
