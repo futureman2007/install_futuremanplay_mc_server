@@ -7,6 +7,4 @@
   #   - do a handler (what fits better) to stop and restart the server. So this playbook can also be used to update the existing plugins.
   #     for that, see notify handlers (notify, if the plugins zip has changed. Use the folder name with a date. if this folder name  does not exist, (like plugins-20-01-2024)
   #     then there is an update of plugins or a new install. in anyway: if the handler sees: "oh! minecraft is running, sop and start it ")
-  #   - three repositories: one to install mc server, one to install bukkit/spiggot plugins and a third one to install futureman2007s minecraft sspiggot
-  #      where install mc server and install plugins and server files are put together (two repos as submodule, where the needed roles are loaded)
-  #      And THERE the playbook will sit!
+  #   -  Add in Readme to use --ask-vault-pass for installing server scripts (and that you also need to specify them)

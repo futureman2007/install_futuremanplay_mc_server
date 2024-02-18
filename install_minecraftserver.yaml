@@ -4,9 +4,8 @@
     apt_packages_list:
 
   tasks:
-    - name: "install minecraft spiggot server"
+    - name: "install minecraft spigot server"
       ansible.builtin.import_role:
         name: "install_minecraft_server"
       vars:
         mc_version: "1.20.4"
-        type: "spiggot"
