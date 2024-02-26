@@ -1,7 +1,5 @@
 - name: "Install Minecraft Server"
   hosts: all
-  vars:
-    apt_packages_list:
 
   tasks:
     - name: "install minecraft spigot server"
